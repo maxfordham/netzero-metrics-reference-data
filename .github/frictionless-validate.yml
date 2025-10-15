@@ -1,0 +1,2 @@
+- name: Frictionless Repository
+  uses: frictionlessdata/frictionless-ci@v2.2.2
