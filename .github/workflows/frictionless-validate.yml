@@ -1,6 +1,7 @@
 name: package
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -9,13 +10,33 @@ on:
       - main
 
 jobs:
-
-  # Validate
-
-  validate:
+  all:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Validate data
-        uses: frictionlessdata/repository@v2
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          virtualenvs-path: .venv
+          installer-parallel: true
+      - name: Install dependencies
+        run: |
+          poetry init -q --no-interaction
+          poetry add frictionless --no-interaction
+      - name: Run frictionless validate
+        run: poetry run frictionless validate datapackage.yaml
+      - name: Workflow failure notification
+        uses: JasonEtco/create-an-issue@v2
+        if: failure()
+        with:
+          filename: .github/frictionless-validate-failure.md
