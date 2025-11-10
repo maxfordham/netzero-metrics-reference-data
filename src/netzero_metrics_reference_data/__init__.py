@@ -6,6 +6,7 @@ PTH_PKG = (
     .joinpath("data")
     .joinpath("datapackage.yaml")
 )
-nzm_pkg = Package(PTH_PKG)
 
-__all__ = ["nzm_pkg"]
+
+def load_datapackage():
+    return Package(PTH_PKG)
