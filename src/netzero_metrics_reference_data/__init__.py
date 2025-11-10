@@ -8,5 +8,5 @@ PTH_PKG = (
 )
 
 
-def load_datapackage():
+def load_datapackage() -> Package:
     return Package(PTH_PKG)
