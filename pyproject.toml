@@ -1,0 +1,33 @@
+[project]
+authors = [{name = "jgunstone", email = "j.gunstone@maxfordham.com"}]
+dependencies = ["frictionless>=5.18.1,<6"]
+name = "netzero-metrics-reference-data"
+requires-python = ">= 3.11"
+version = "0.1.0"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+netzero_metrics_reference_data = { path = ".", editable = true }
+
+[tool.pixi.dependencies]
+stringcase = ">=1.2.0,<2"
+openpyxl = ">=3.1.5,<4"
+pandas = ">=2.3,<3"
+pytest = ">=7.2.2,<8"
+hatch = ">=1.0.0,<2"
+casefy = ">=1.0.0,<2"
+
+[tool.pixi.tasks]
+get-eui = { cmd = "python get_eui.py", cwd = "scripts" }
+create-datapackage = { cmd = "python create_datapackage.py", cwd = "scripts" }
+cp-data = { cmd = "python scripts/cp_data.py"} #, cwd = "scripts"
+tests = {cmd = "pytest", depends-on = ["cp-data"] }
+build = "hatch build"
+frictionless-validate = { cmd = "frictionless validate datapackage.yaml" }
