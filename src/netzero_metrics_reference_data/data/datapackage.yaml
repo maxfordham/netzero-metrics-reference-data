@@ -1,6 +1,6 @@
 name: nzc-data
 title: Net Zero Carbon Data
-description: 'structured data to support setting '
+description: "structured data to support setting "
 resources:
   - name: energy-use-intensity
     type: table
@@ -23,11 +23,12 @@ resources:
           type: string
         - name: Unit
           type: string
-        - name: ConstructionDeliveryType
+        - name: ConstructionMethod
           type: string
   - name: building-types
     type: text
-    title: UK NZCBS Operational Energy Use intensity targets - unique building types
+    title:
+      UK NZCBS Operational Energy Use intensity targets - unique building types
       from TableOE-1 & TableOE-2
     sources:
       - UK Net Zero Carbon Building Standard Pilot Version (Sept 2024), TableOE-1 & TableOE-2: https://www.nzcbuildings.co.uk/pilotversion
@@ -56,7 +57,8 @@ resources:
   - name: rics-building-element-category
     type: table
     title: RICS Building Element Categories for Life Cycle Carbon Assessment (v1)
-    description: for categorising the embodied carbon intensity of materials in a
+    description:
+      for categorising the embodied carbon intensity of materials in a
       building by function
     path: rics-building-element-category.csv
     scheme: file

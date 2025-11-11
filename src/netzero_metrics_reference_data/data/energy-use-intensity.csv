@@ -1,4 +1,4 @@
-Year,BuildingType,BenchmarkTarget,BuildingTypeShorthand,Unit,ConstructionDeliveryType
+Year,BuildingType,BenchmarkTarget,BuildingTypeShorthand,Unit,ConstructionMethod
 2025,Commercial Resi - Student Residential,75.0,Stud. Resi.,kWh/m²GIA/yr,newbuild
 2026,Commercial Resi - Student Residential,74.0,Stud. Resi.,kWh/m²GIA/yr,newbuild
 2027,Commercial Resi - Student Residential,72.0,Stud. Resi.,kWh/m²GIA/yr,newbuild
