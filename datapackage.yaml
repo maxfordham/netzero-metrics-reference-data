@@ -17,7 +17,7 @@ resources:
           type: integer
         - name: BuildingType
           type: string
-        - name: BenchmarkTarget
+        - name: Target
           type: number
         - name: BuildingTypeShorthand
           type: string
