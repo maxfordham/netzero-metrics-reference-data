@@ -2,7 +2,7 @@
 authors = [{name = "jgunstone", email = "j.gunstone@maxfordham.com"}]
 dependencies = ["frictionless>=5.18.1,<6"]
 name = "netzero-metrics-reference-data"
-requires-python = ">= 3.11"
+requires-python = ">= 3.12"
 dynamic = ["version"]
 
 [project.urls]
@@ -30,11 +30,11 @@ netzero_metrics_reference_data = { path = ".", editable = true }
 [tool.pixi.dependencies]
 stringcase = ">=1.2.0,<2"
 openpyxl = ">=3.1.5,<4"
-pandas = ">=2.3,<3"
-pytest = ">=7.2.2,<8"
+pandas = ">=3.1.1,<4"
+pytest = ">=9.2.0,<10"
 hatch = ">=1.0.0,<2"
 casefy = ">=1.0.0,<2"
-pip = ">=25,<26" # req. for hatch-vcs
+pip = ">=26,<27" # req. for hatch-vcs
 
 [tool.pixi.tasks]
 get-eui = { cmd = "python get_eui.py", cwd = "scripts" }
